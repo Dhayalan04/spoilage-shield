@@ -14,7 +14,181 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      alerts: {
+        Row: {
+          acknowledged: boolean
+          alert_type: string
+          created_at: string
+          id: string
+          message: string
+          severity: string
+          storage_unit_id: string
+          user_id: string
+        }
+        Insert: {
+          acknowledged?: boolean
+          alert_type: string
+          created_at?: string
+          id?: string
+          message: string
+          severity: string
+          storage_unit_id: string
+          user_id: string
+        }
+        Update: {
+          acknowledged?: boolean
+          alert_type?: string
+          created_at?: string
+          id?: string
+          message?: string
+          severity?: string
+          storage_unit_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "alerts_storage_unit_id_fkey"
+            columns: ["storage_unit_id"]
+            isOneToOne: false
+            referencedRelation: "storage_units"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      market_prices: {
+        Row: {
+          crop_type: string
+          currency: string
+          id: number
+          market_name: string
+          price_per_kg: number
+          recorded_at: string
+        }
+        Insert: {
+          crop_type: string
+          currency?: string
+          id?: number
+          market_name: string
+          price_per_kg: number
+          recorded_at?: string
+        }
+        Update: {
+          crop_type?: string
+          currency?: string
+          id?: number
+          market_name?: string
+          price_per_kg?: number
+          recorded_at?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          updated_at: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id: string
+          updated_at?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      sensor_readings: {
+        Row: {
+          humidity: number
+          id: number
+          recorded_at: string
+          storage_unit_id: string
+          temperature: number
+        }
+        Insert: {
+          humidity: number
+          id?: number
+          recorded_at?: string
+          storage_unit_id: string
+          temperature: number
+        }
+        Update: {
+          humidity?: number
+          id?: number
+          recorded_at?: string
+          storage_unit_id?: string
+          temperature?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sensor_readings_storage_unit_id_fkey"
+            columns: ["storage_unit_id"]
+            isOneToOne: false
+            referencedRelation: "storage_units"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      storage_units: {
+        Row: {
+          capacity_kg: number | null
+          created_at: string
+          crop_type: string
+          current_stock_kg: number | null
+          device_id: string | null
+          device_token: string
+          id: string
+          location: string | null
+          max_humidity: number
+          max_temp: number
+          min_humidity: number
+          min_temp: number
+          name: string
+          user_id: string
+        }
+        Insert: {
+          capacity_kg?: number | null
+          created_at?: string
+          crop_type: string
+          current_stock_kg?: number | null
+          device_id?: string | null
+          device_token?: string
+          id?: string
+          location?: string | null
+          max_humidity?: number
+          max_temp?: number
+          min_humidity?: number
+          min_temp?: number
+          name: string
+          user_id: string
+        }
+        Update: {
+          capacity_kg?: number | null
+          created_at?: string
+          crop_type?: string
+          current_stock_kg?: number | null
+          device_id?: string | null
+          device_token?: string
+          id?: string
+          location?: string | null
+          max_humidity?: number
+          max_temp?: number
+          min_humidity?: number
+          min_temp?: number
+          name?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
