@@ -16,38 +16,6 @@ Spoilage Shield is a smart food management web application that helps users redu
 - ☁️ Cloud Data Storage
 
 ---
-
-## 🛠️ Tech Stack
-
-- React + Vite
-- Tailwind CSS
-- Firebase Authentication
-- Cloud Firestore
-- JavaScript
-  
-## 📁 Project Structure
-
-```text
-spoilage-shield/
-│── public/
-│── src/
-│   ├── assets/
-│   ├── components/
-│   ├── pages/
-│   ├── hooks/
-│   ├── services/
-│   ├── firebase/
-│   ├── utils/
-│   ├── App.jsx
-│   └── main.jsx
-│
-├── package.json
-├── vite.config.js
-├── tailwind.config.js
-└── README.md
-```
-
----
 ## 📄 License
 
 This project is licensed under the MIT License.
